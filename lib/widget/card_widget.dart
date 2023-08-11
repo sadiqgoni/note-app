@@ -1,19 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../view/task_page.dart';
-
-class CartWidget extends StatelessWidget {
+class CardWidget extends StatelessWidget {
   final String title;
   final String description;
-  const CartWidget({
-    super.key, required this.title, required this.description,
+  final void Function() onDelete;
+  const CardWidget({
+    super.key, required this.title, required this.description, required this.onDelete,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 7.5),
+      margin: const EdgeInsets.symmetric(vertical: 8.5),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
@@ -26,9 +24,13 @@ class CartWidget extends StatelessWidget {
             )
           ]
       ),
-      child: ListTile(
-        title: Text(title, style: TextStyle(fontWeight: FontWeight.bold),),
-        subtitle: Text(description, maxLines: 2, overflow: TextOverflow.ellipsis,),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListTile(
+          title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold),),
+          subtitle: Text(description, maxLines: 2, overflow: TextOverflow.ellipsis,),
+          trailing: IconButton(icon: Icon(Icons.delete), onPressed: onDelete,),
+        ),
       ),
     );
   }

@@ -23,7 +23,7 @@ class _TaskScreenState extends State<TaskScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add Task"),
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.blue,
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -81,15 +81,17 @@ class _TaskScreenState extends State<TaskScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orangeAccent,
+                      backgroundColor: Colors.blue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: isLoading == true ? CircularProgressIndicator() : const Text(
+                    child: isLoading == true ? const CircularProgressIndicator(
+                      color: Colors.white,
+                    ) : const Text(
                       'Save',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                   ),
