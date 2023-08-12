@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => NoteBloc(firestoreService)..add(LoadNotes()),
           ),
-          // Add other BLoCs if needed
         ],
         child: const HomePage(),
       ),
